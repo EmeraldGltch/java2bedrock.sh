@@ -74,8 +74,11 @@ jobs:
         run: |
           sudo apt-get install -y moreutils zip
           yarn global add spritesheet-js
-          echo "Installing JQ"
-          sudo apt-get install jq=1.6 --force
+      - name: Install jq
+        uses: dcarbone/install-jq-action@v3.1.1
+        with:
+          version: 1.6
+          force: true
       - name: Convert Pack
         id: convert-pack
         continue-on-error: false
